@@ -2,12 +2,145 @@
   "last_run_date": "2026-10-05",
   "version": 1,
   "watchers": {
+    "3D & Laser Cutting - Jurong & Woodlands": {
+      "consecutive_failures": 0,
+      "initialized": true,
+      "items": {
+        "5974096": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "waitlist",
+          "title": "Laser Cutting Starter Session @ Jurong Library | MakeIT"
+        },
+        "5974098": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "waitlist",
+          "title": "Laser Cutting Starter Session @ Woodlands Library | MakeIT"
+        },
+        "5974099": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "waitlist",
+          "title": "3D Starter Session @ Jurong Library | MakeIT"
+        },
+        "5974705": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "full",
+          "title": "3D Starter Session @ Jurong Library | MakeIT"
+        },
+        "5974863": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "full",
+          "title": "3D Starter Session @ Woodlands Library | MakeIT"
+        },
+        "5974864": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "full",
+          "title": "3D Starter Session @ Woodlands Library | MakeIT"
+        },
+        "5974880": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "not_open",
+          "title": "Laser Cutting Starter Session @ Jurong Library | MakeIT"
+        },
+        "5976085": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "waitlist",
+          "title": "3D Starter Session @ Woodlands Library | MakeIT"
+        },
+        "5976091": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "waitlist",
+          "title": "3D Starter Session @ Woodlands Library | MakeIT"
+        }
+      },
+      "last_error": null
+    },
     "Jurong Library sewing": {
       "consecutive_failures": 0,
       "initialized": true,
       "items": {
         "5974875": {
           "first_seen": "2026-10-05T11:44:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "full",
+          "title": "Sewing Starter Session @ Jurong Library | MakeIT"
+        }
+      },
+      "last_error": null
+    },
+    "Sewing - all libraries": {
+      "consecutive_failures": 0,
+      "initialized": true,
+      "items": {
+        "5868264": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "not_open",
+          "title": "Basics of Sewing and Upcycling | Sew & Steady Starter"
+        },
+        "5868283": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "waitlist",
+          "title": "Upcycling Studio | Sew & Steady"
+        },
+        "5868284": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "not_open",
+          "title": "Upcycling Studio | Sew & Steady"
+        },
+        "5974616": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "full",
+          "title": "Sewing Starter Session @ Tampines Library | MakeIT"
+        },
+        "5974708": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "full",
+          "title": "Sewing Starter Session @ Woodlands Library | MakeIT"
+        },
+        "5974858": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "full",
+          "title": "Sewing Starter Session @ Punggol Library | MakeIT"
+        },
+        "5974873": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "full",
+          "title": "Sewing Starter Session @ Tampines Library | MakeIT"
+        },
+        "5974875": {
+          "first_seen": "2026-10-05T12:08:55+08:00",
           "last_seen": "2026-10-05",
           "reminded_for": null,
           "status": "full",
