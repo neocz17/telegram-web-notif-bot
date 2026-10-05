@@ -1,5 +1,5 @@
 {
-  "last_run_date": "2026-10-05",
+  "last_run_date": "2026-10-06",
   "version": 1,
   "watchers": {
     "3D & Laser Cutting - Jurong & Woodlands": {
@@ -8,56 +8,56 @@
       "items": {
         "5974096": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "waitlist",
           "title": "Laser Cutting Starter Session @ Jurong Library | MakeIT"
         },
         "5974098": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "waitlist",
           "title": "Laser Cutting Starter Session @ Woodlands Library | MakeIT"
         },
         "5974099": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "waitlist",
           "title": "3D Starter Session @ Jurong Library | MakeIT"
         },
         "5974705": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "full",
           "title": "3D Starter Session @ Jurong Library | MakeIT"
         },
         "5974863": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "full",
           "title": "3D Starter Session @ Woodlands Library | MakeIT"
         },
         "5974864": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "full",
           "title": "3D Starter Session @ Woodlands Library | MakeIT"
         },
         "5974880": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "not_open",
           "title": "Laser Cutting Starter Session @ Jurong Library | MakeIT"
         },
         "5976085": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "waitlist",
           "title": "3D Starter Session @ Woodlands Library | MakeIT"
@@ -113,35 +113,35 @@
         },
         "5974616": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "full",
           "title": "Sewing Starter Session @ Tampines Library | MakeIT"
         },
         "5974708": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "full",
           "title": "Sewing Starter Session @ Woodlands Library | MakeIT"
         },
         "5974858": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "full",
           "title": "Sewing Starter Session @ Punggol Library | MakeIT"
         },
         "5974873": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "full",
           "title": "Sewing Starter Session @ Tampines Library | MakeIT"
         },
         "5974875": {
           "first_seen": "2026-10-05T12:08:55+08:00",
-          "last_seen": "2026-10-05",
+          "last_seen": "2026-10-06",
           "reminded_for": null,
           "status": "full",
           "title": "Sewing Starter Session @ Jurong Library | MakeIT"
