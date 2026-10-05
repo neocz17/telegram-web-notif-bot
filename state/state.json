@@ -1,5 +1,20 @@
 {
-  "last_run_date": null,
+  "last_run_date": "2026-10-05",
   "version": 1,
-  "watchers": {}
+  "watchers": {
+    "Jurong Library sewing": {
+      "consecutive_failures": 0,
+      "initialized": true,
+      "items": {
+        "5974875": {
+          "first_seen": "2026-10-05T11:44:55+08:00",
+          "last_seen": "2026-10-05",
+          "reminded_for": null,
+          "status": "full",
+          "title": "Sewing Starter Session @ Jurong Library | MakeIT"
+        }
+      },
+      "last_error": null
+    }
+  }
 }
