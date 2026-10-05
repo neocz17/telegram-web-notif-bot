@@ -14,6 +14,7 @@ from __future__ import annotations
 import html
 import re
 from datetime import datetime
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -32,11 +33,13 @@ class LibCalOptions(BaseModel):
 
     base_url: str = "https://nlb.libcal.com"
     calendar_id: int
-    # Library branch ("campus") ID - the value of the location dropdown on the
-    # calendar page. Filtering here (server-side) matters: the unfiltered
-    # calendar only returns the next ~280 events, so far-future sessions at a
-    # specific branch are missing unless you filter by campus.
-    campus_id: int | None = None
+    # Library branch ("campus") IDs - the values of the location dropdown on
+    # the calendar page - or "all" to read every branch from that dropdown.
+    # Each branch is queried separately because LibCal returns at most ~280
+    # events per query: an unfiltered (or multi-branch) query silently drops
+    # far-future sessions.
+    campus_ids: list[int] | Literal["all"] | None = None
+    campus_id: int | None = None  # single branch (same as campus_ids: [id])
     category_ids: list[int] = Field(default_factory=list)
     audience_ids: list[int] = Field(default_factory=list)
     per_page: int = 48
@@ -56,9 +59,40 @@ class LibCalSource(Source):
     def _list_url(self) -> str:
         return self.opts.base_url.rstrip("/") + "/ajax/calendar/list"
 
-    def fetch(self) -> list[Item]:
+    def _campuses(self) -> list[str]:
         o = self.opts
+        if o.campus_ids == "all":
+            return self._all_campus_ids()
+        if o.campus_ids:
+            return [str(c) for c in o.campus_ids]
+        if o.campus_id is not None:
+            return [str(o.campus_id)]
+        return [""]  # no branch filter
+
+    def _all_campus_ids(self) -> list[str]:
+        """Read every branch ID from the calendar page's location dropdown."""
+        url = self.opts.base_url.rstrip("/") + "/calendar"
+        params = {"cid": self.opts.calendar_id, "cal": self.opts.calendar_id}
+        resp = self.session.get(url, params=params, timeout=DEFAULT_TIMEOUT)
+        resp.raise_for_status()
+        m = re.search(r'<select[^>]*id="cam-dd".*?</select>', resp.text, re.S)
+        ids = re.findall(r'<option value="(\d+)"', m.group(0)) if m else []
+        if not ids:
+            raise SourceError("Could not find the library list (location dropdown) on the calendar page")
+        return ids
+
+    def fetch(self) -> list[Item]:
         events: dict[str, dict] = {}
+        for campus in self._campuses():
+            for ev in self._fetch_campus(campus):
+                # dict keyed by id de-duplicates events that shift between pages
+                events[str(ev["id"])] = ev
+        ordered = sorted(events.values(), key=lambda ev: ev.get("startdt") or "")
+        return [self._to_item(ev) for ev in ordered]
+
+    def _fetch_campus(self, campus: str) -> list[dict]:
+        o = self.opts
+        events: list[dict] = []
         for page in range(1, o.max_pages + 1):
             params = {
                 "c": o.calendar_id,
@@ -67,7 +101,7 @@ class LibCalSource(Source):
                 "page": page,
                 "audience": ",".join(map(str, o.audience_ids)),
                 "cats": ",".join(map(str, o.category_ids)),
-                "camps": o.campus_id if o.campus_id is not None else "",
+                "camps": campus,
                 "inc": 0,
             }
             resp = self.session.get(self._list_url(), params=params, timeout=DEFAULT_TIMEOUT)
@@ -80,12 +114,10 @@ class LibCalSource(Source):
                 raise SourceError(f"Unexpected LibCal response shape: keys={list(data)[:10]}")
 
             results = data["results"] or []
-            for ev in results:
-                # dict keyed by id de-duplicates events that shift between pages
-                events[str(ev["id"])] = ev
+            events.extend(results)
             if not results or page * o.per_page >= int(data["total_results"]):
                 break
-        return [self._to_item(ev) for ev in events.values()]
+        return events
 
     def _to_item(self, ev: dict) -> Item:
         details = []

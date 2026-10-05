@@ -70,7 +70,48 @@ def test_libcal_paginates_and_sends_campus_filter():
     assert len(src.fetch()) == 5
     list_calls = [p for u, p in session.calls if "ajax" in u]
     assert [p["page"] for p in list_calls] == [1, 2, 3]
-    assert all(p["camps"] == 5748 for p in list_calls)
+    assert all(p["camps"] == "5748" for p in list_calls)
+
+
+def _campus_session(calendar_page=""):
+    """Each campus returns one event whose id is the campus id."""
+    from .conftest import FakeResponse
+
+    class S(FakeSession):
+        def get(self, url, params=None, timeout=None):
+            self.calls.append((url, params))
+            if "ajax/calendar/list" in url:
+                c = params["camps"]
+                body = {"total_results": 1, "results": [_event(int(c), f"Sewing @ {c}")]}
+                return FakeResponse(json.dumps(body))
+            if url.endswith("/calendar"):
+                return FakeResponse(calendar_page)
+            return FakeResponse("", 404)
+
+    return S({})
+
+
+def test_libcal_queries_each_listed_campus_separately():
+    session = _campus_session()
+    src = LibCalSource({"calendar_id": 11498, "campus_ids": [5748, 5766]}, session, SGT)
+    assert sorted(i.id for i in src.fetch()) == ["5748", "5766"]
+    assert [p["camps"] for u, p in session.calls if "ajax" in u] == ["5748", "5766"]
+
+
+def test_libcal_all_campuses_reads_dropdown():
+    page = """<select id="cal-dd"><option value="11498">Cal</option></select>
+    <select class="form-control" id="cam-dd"><option value="">All</option>
+    <option value="5748" data-cal_id="5748">Jurong Library</option>
+    <option value="5766" data-cal_id="5766">Woodlands Library</option></select>"""
+    session = _campus_session(page)
+    src = LibCalSource({"calendar_id": 11498, "campus_ids": "all"}, session, SGT)
+    assert sorted(i.id for i in src.fetch()) == ["5748", "5766"]
+
+
+def test_libcal_all_campuses_errors_if_dropdown_missing():
+    src = LibCalSource({"calendar_id": 11498, "campus_ids": "all"}, _campus_session("<html></html>"), SGT)
+    with pytest.raises(SourceError):
+        src.fetch()
 
 
 def test_libcal_unexpected_shape_raises():

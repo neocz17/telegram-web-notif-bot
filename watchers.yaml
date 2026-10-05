@@ -8,27 +8,51 @@ settings:
   forget_after_days: 14
 
 watchers:
-  # Sewing sessions at Jurong (Regional) Library - NLB names it "Jurong Library".
-  # You'll get messages when:
-  #   - a new session is added to the calendar
+  # For each watcher you'll get messages when:
+  #   - a new matching session is added to the calendar
   #   - registration is about to open (60 min before, if the event page says when)
   #   - registration opens, or a seat/waitlist spot frees up on a full session
-  - name: Jurong Library sewing
+
+  # Sewing sessions at EVERY NLB library.
+  - name: Sewing - all libraries
     type: libcal
     options:
       base_url: https://nlb.libcal.com
       calendar_id: 11498        # "Discover More Happenings" calendar
-      campus_id: 5748           # Jurong Library (5749 = Jurong West Library)
+      campus_ids: all           # every library in the calendar's location list
     filters:
       include: "(?i)sew"        # title contains "sew" (Sewing, Sew & Steady, ...)
     remind_before_minutes: 60
 
+  # 3D and Laser Cutting starter sessions at Jurong + Woodlands.
+  - name: 3D & Laser Cutting - Jurong & Woodlands
+    type: libcal
+    options:
+      base_url: https://nlb.libcal.com
+      calendar_id: 11498
+      campus_ids:
+        - 5748                  # Jurong Library ("Jurong Regional Library")
+        - 5766                  # Woodlands Library
+    filters:
+      include: "(?i)3D Starter Session|Laser Cutting Starter Session"
+    remind_before_minutes: 60
+
+  # Library IDs, for adding more to campus_ids:
+  #   5737 Ang Mo Kio      5738 Bedok           5739 Bishan          5740 Bukit Batok
+  #   5741 Bukit Panjang   5742 Central Arts    5743 Central         5744 Cheng San
+  #   5789 Chinatown       5745 Choa Chu Kang   5746 Clementi        5747 Geylang East
+  #   5751 Harbourfront    5748 Jurong          5749 Jurong West     5750 Lee Kong Chian Ref.
+  #   5754 Marine Parade   5755 National Archives 5756 National Library Bldg 5753 Orchard
+  #   5757 Others          5758 Pasir Ris       5759 Punggol         5760 Queenstown
+  #   5761 Sembawang       5762 Sengkang        5764 Serangoon       5763 Tampines
+  #   5765 Toa Payoh       5766 Woodlands       5767 Yishun
+
   # --- More examples (remove the leading "# " to enable) --------------------
 
-  # All MakeIT sessions at Jurong Library, not just sewing:
+  # All MakeIT sessions at Jurong Library:
   # - name: Jurong Library MakeIT
   #   type: libcal
-  #   options: { calendar_id: 11498, campus_id: 5748 }
+  #   options: { calendar_id: 11498, campus_ids: [5748] }
   #   filters: { include: "MakeIT" }
 
   # Any site with an RSS feed:
