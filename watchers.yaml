@@ -21,7 +21,7 @@ watchers:
       calendar_id: 11498        # "Discover More Happenings" calendar
       campus_ids: all           # every library in the calendar's location list
     filters:
-      include: "(?i)sew"        # title contains "sew" (Sewing, Sew & Steady, ...)
+      include: "(?i)Sewing Starter Session"        # title contains "sew" (Sewing, Sew & Steady, ...)
     remind_before_minutes: 60
 
   # 3D and Laser Cutting starter sessions at Jurong + Woodlands.
