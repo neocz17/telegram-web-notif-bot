@@ -1,0 +1,58 @@
+name: watch
+
+on:
+  schedule:
+    # Every 15 minutes. Odd minutes avoid the :00 rush, when GitHub delays
+    # or drops the most scheduled jobs. (Cron times are UTC; it doesn't
+    # matter for an every-15-min schedule.)
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch: {} # adds a "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write # needed to commit state/state.json back to the repo
+
+# Never let two runs overlap (they'd fight over state.json).
+concurrency:
+  group: watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Check websites
+        id: run
+        run: python -m webwatch
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+      # Save what we've seen, even if the run reported a failure (so the
+      # failure counter is remembered). Only commits when something changed.
+      - name: Commit state
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/state.json
+          if git diff --cached --quiet; then
+            echo "No state changes."
+            exit 0
+          fi
+          git commit -m "Update watcher state"
+          for attempt in 1 2 3; do
+            git pull --rebase --quiet && git push --quiet && exit 0
+            sleep $((attempt * 5))
+          done
+          echo "Could not push state after 3 attempts" >&2
+          exit 1

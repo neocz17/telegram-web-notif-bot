@@ -1,0 +1,48 @@
+# What to watch. After editing, commit + push - the next scheduled run uses it.
+# A new watcher's first run is a silent "baseline": you get ONE summary message
+# of what's currently there, then only messages about changes after that.
+
+settings:
+  timezone: Asia/Singapore
+  failure_alert_after: 3     # message me after 3 failed runs in a row (~45 min)
+  forget_after_days: 14
+
+watchers:
+  # Sewing sessions at Jurong (Regional) Library - NLB names it "Jurong Library".
+  # You'll get messages when:
+  #   - a new session is added to the calendar
+  #   - registration is about to open (60 min before, if the event page says when)
+  #   - registration opens, or a seat/waitlist spot frees up on a full session
+  - name: Jurong Library sewing
+    type: libcal
+    options:
+      base_url: https://nlb.libcal.com
+      calendar_id: 11498        # "Discover More Happenings" calendar
+      campus_id: 5748           # Jurong Library (5749 = Jurong West Library)
+    filters:
+      include: "(?i)sew"        # title contains "sew" (Sewing, Sew & Steady, ...)
+    remind_before_minutes: 60
+
+  # --- More examples (remove the leading "# " to enable) --------------------
+
+  # All MakeIT sessions at Jurong Library, not just sewing:
+  # - name: Jurong Library MakeIT
+  #   type: libcal
+  #   options: { calendar_id: 11498, campus_id: 5748 }
+  #   filters: { include: "MakeIT" }
+
+  # Any site with an RSS feed:
+  # - name: Some blog
+  #   type: rss
+  #   options: { url: https://example.com/feed.xml }
+  #   filters: { include: "(?i)sale|market" }
+
+  # A normal web page, described with CSS selectors (see README):
+  # - name: Example shop - new arrivals
+  #   type: html
+  #   options:
+  #     url: https://example.com/new-arrivals
+  #     item_selector: ".product-card"
+  #     title: ".product-name"
+  #     link: "a@href"
+  #     fields: { price: ".price" }
