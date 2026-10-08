@@ -82,6 +82,13 @@
           "reminded_for": null,
           "status": "not_open",
           "title": "Laser Cutting Starter Session @ Jurong Library | MakeIT"
+        },
+        "5977355": {
+          "first_seen": "2026-10-08T22:58:13+08:00",
+          "last_seen": "2026-10-08",
+          "reminded_for": null,
+          "status": "not_open",
+          "title": "Laser Cutting Starter Session @ Woodlands Library | MakeIT"
         }
       },
       "last_error": null
@@ -173,6 +180,13 @@
           "reminded_for": null,
           "status": "not_open",
           "title": "Sewing Starter Session @ Punggol Library | MakeIT"
+        },
+        "5977356": {
+          "first_seen": "2026-10-08T22:58:13+08:00",
+          "last_seen": "2026-10-08",
+          "reminded_for": null,
+          "status": "not_open",
+          "title": "Sewing Starter Session @ Jurong Library | MakeIT"
         }
       },
       "last_error": null
