@@ -68,6 +68,13 @@
           "reminded_for": null,
           "status": "waitlist",
           "title": "3D Starter Session @ Woodlands Library | MakeIT"
+        },
+        "5977235": {
+          "first_seen": "2026-10-08T09:21:56+08:00",
+          "last_seen": "2026-10-08",
+          "reminded_for": null,
+          "status": "not_open",
+          "title": "Laser Cutting Starter Session @ Jurong Library | MakeIT"
         }
       },
       "last_error": null
@@ -145,6 +152,20 @@
           "reminded_for": null,
           "status": "full",
           "title": "Sewing Starter Session @ Jurong Library | MakeIT"
+        },
+        "5977230": {
+          "first_seen": "2026-10-08T09:21:56+08:00",
+          "last_seen": "2026-10-08",
+          "reminded_for": null,
+          "status": "not_open",
+          "title": "Sewing Starter Session @ Jurong Library | MakeIT"
+        },
+        "5977236": {
+          "first_seen": "2026-10-08T09:21:56+08:00",
+          "last_seen": "2026-10-08",
+          "reminded_for": null,
+          "status": "not_open",
+          "title": "Sewing Starter Session @ Punggol Library | MakeIT"
         }
       },
       "last_error": null
