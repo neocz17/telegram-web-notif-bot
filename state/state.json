@@ -117,6 +117,13 @@
           "reminded_for": null,
           "status": "not_open",
           "title": "3D Starter Session @ Jurong Library | MakeIT"
+        },
+        "5977632": {
+          "first_seen": "2026-10-12T17:42:32+08:00",
+          "last_seen": "2026-10-12",
+          "reminded_for": null,
+          "status": "open",
+          "title": "3D Starter Session @ Jurong Library | MakeIT"
         }
       },
       "last_error": null
