@@ -66,14 +66,14 @@
           "first_seen": "2026-10-08T15:43:04+08:00",
           "last_seen": "2026-10-24",
           "reminded_for": null,
-          "status": "not_open",
+          "status": "waitlist",
           "title": "Laser Cutting Starter Session @ Jurong Library | MakeIT"
         },
         "5977355": {
           "first_seen": "2026-10-08T22:58:13+08:00",
           "last_seen": "2026-10-24",
           "reminded_for": null,
-          "status": "not_open",
+          "status": "open",
           "title": "Laser Cutting Starter Session @ Woodlands Library | MakeIT"
         },
         "5977370": {
@@ -157,7 +157,7 @@
           "first_seen": "2026-10-05T12:08:55+08:00",
           "last_seen": "2026-10-24",
           "reminded_for": null,
-          "status": "full",
+          "status": "closed",
           "title": "Sewing Starter Session @ Tampines Library | MakeIT"
         },
         "5974875": {
@@ -185,7 +185,7 @@
           "first_seen": "2026-10-08T22:58:13+08:00",
           "last_seen": "2026-10-24",
           "reminded_for": null,
-          "status": "not_open",
+          "status": "full",
           "title": "Sewing Starter Session @ Jurong Library | MakeIT"
         },
         "5977371": {
