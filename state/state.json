@@ -59,21 +59,21 @@
           "first_seen": "2026-11-12T16:14:50+08:00",
           "last_seen": "2026-11-14",
           "reminded_for": "2026-11-14T12:00:00+08:00",
-          "status": "not_open",
+          "status": "full",
           "title": "3D Starter Session @ Jurong Library | MakeIT"
         },
         "5979981": {
           "first_seen": "2026-11-12T16:14:50+08:00",
           "last_seen": "2026-11-14",
           "reminded_for": "2026-11-14T12:00:00+08:00",
-          "status": "not_open",
+          "status": "full",
           "title": "3D Starter Session @ Jurong Library | MakeIT"
         },
         "5980015": {
           "first_seen": "2026-11-12T16:14:50+08:00",
           "last_seen": "2026-11-14",
           "reminded_for": "2026-11-14T12:00:00+08:00",
-          "status": "not_open",
+          "status": "open",
           "title": "Laser Cutting Starter Session @ Jurong Library | MakeIT"
         },
         "5980026": {
@@ -101,7 +101,7 @@
           "first_seen": "2026-11-12T16:14:50+08:00",
           "last_seen": "2026-11-14",
           "reminded_for": "2026-11-14T12:00:00+08:00",
-          "status": "not_open",
+          "status": "open",
           "title": "Laser Cutting Starter Session @ Woodlands Library | MakeIT"
         }
       },
